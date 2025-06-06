@@ -1,4 +1,4 @@
-# [`tss-skills`] by [TinySprite Scripts (TSS)](https://yourstorelink.com) | [Discord](https://discord.gg/ZMFfC54FdJ) | [Support Us](https://ko-fi.com/tinyspritescripts)
+# [`tss-skills`] by [TinySprite Scripts (TSS)](https://tinysprite-scripts.tebex.io/) | [Discord](https://discord.gg/ZMFfC54FdJ) | [Support Us](https://ko-fi.com/tinyspritescripts)
 
 Create skill systems for anything at all!
 ---
@@ -52,7 +52,7 @@ Need help with setup or encountering issues? Join our Discord: [Join Support Ser
 
 ## 📬 Contact
 
-- Tebex: [https://yourstorelink.com](https://yourstorelink.com)
+- Tebex: [https://yourstorelink.com](https://tinysprite-scripts.tebex.io/)
 - Discord: [TinySprite Scripts](https://discord.gg/ZMFfC54FdJ)
 - Ko-fi: [https://ko-fi.com/tinyspritescripts](https://ko-fi.com/tinyspritescripts)
 

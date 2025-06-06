@@ -62,7 +62,7 @@ function closeMenu() {
 }
 
 function sendToLua(endpoint, payload) {
-  return fetch(`https://tss-levels/${endpoint}`, {
+  return fetch(`https://tss-skills/${endpoint}`, {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
@@ -72,7 +72,7 @@ function sendToLua(endpoint, payload) {
 }
 
 function retrieveFromLua(endpoint, payload) {
-  return fetch(`https://tss-levels/${endpoint}`, {
+  return fetch(`https://tss-skills/${endpoint}`, {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
