@@ -9,12 +9,12 @@ RegisterNetEvent('tss-skills:server:PlayerLoaded',function()
     local Player = getPlayer(source)
     local cid = Player.citizenId
     local Data = {}
-    MySQL.rawExecute('SELECT * FROM player_skills WHERE citizenid = ?', { cid }, function(result)
+    MySQL.rawExecute('SELECT * FROM tss_skills WHERE citizenid = ?', { cid }, function(result)
         if not result[1] then
             for k,v in pairs(Config.SkillKeys) do
                 Data[k] = 1
             end
-            MySQL.insert('INSERT INTO player_skills (citizenid, levelData) VALUES (?, ?)', {
+            MySQL.insert('INSERT INTO tss_skills (citizenid, levelData) VALUES (?, ?)', {
                 cid,
                 json.encode(Data),
             })
@@ -32,11 +32,19 @@ RegisterNetEvent('tss-skills:server:PlayerLoaded',function()
                 end
             end
             local final = json.encode(CurrentLevelData)
-            MySQL.update('UPDATE player_skills SET levelData = ? WHERE citizenid = ?', { final, cid })   
+            MySQL.update('UPDATE tss_skills SET levelData = ? WHERE citizenid = ?', { final, cid })   
             updateLevelCache(cid, CurrentLevelData)
         end
     end)
 end)
+
+function DoesSkillExist(skill)
+    if Config.SkillKeys[skill] == nil then 
+        return false 
+    else
+        return true
+    end
+end
 
 -- AddXP
 
@@ -62,7 +70,7 @@ function AddXP(skill, xp, src)
             local new_value = math.floor(currentValue + value_to_add)
             storedData[skill] = new_value
             local final = json.encode(storedData)
-            MySQL.update('UPDATE player_skills SET levelData = ? WHERE citizenid = ?', { final, cid })
+            MySQL.update('UPDATE tss_skills SET levelData = ? WHERE citizenid = ?', { final, cid })
             updateLevelCache(cid, storedData)
             
         else
@@ -97,7 +105,7 @@ function RemoveXP(skill, xp, src)
             if new_value < 0 then new_value = 0 end
             storedData[skill] = new_value
             local final = json.encode(storedData)
-            MySQL.update('UPDATE player_skills SET levelData = ? WHERE citizenid = ?', { final, cid })
+            MySQL.update('UPDATE tss_skills SET levelData = ? WHERE citizenid = ?', { final, cid })
             updateLevelCache(cid, storedData)
             
         else

@@ -3,10 +3,19 @@ onPlayerLoaded(function()
     TriggerServerEvent('tss-skills:server:PlayerLoaded')
 end, true)
 
-RegisterCommand('open-skills',function()
+local function deepCopy(tbl)
+    local copy = {}
+    for k, v in pairs(tbl) do
+        copy[k] = type(v) == "table" and deepCopy(v) or v
+    end
+    return copy
+end
+
+
+RegisterCommand('skills',function()
     local result = triggerCallback("tss-skills:server:GetAllData")
     if not result then return end
-    local SkillKeys = Config.SkillKeys
+    local SkillKeys = deepCopy(Config.SkillKeys)
     for k,v in pairs(Config.SkillKeys) do
         if result[k] ~= nil then
             SkillKeys[k].CurrentXP = result[k]

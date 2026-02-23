@@ -4,18 +4,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>TSS Skills Menu</title>
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="skills-menu" class="hidden"> <!-- the container of the menu -->
-    <div class="skills-header"> <!-- header label-->
-      <h2>Skills</h2>
-      <button onclick="closeMenu()">✖</button>
-    </div>
-    <div id="skills-list" class="skills-list">
-      <!-- Skills will be inserted here dynamically (you dont need to add them here) -->
+  <div id="skills-wrap" class="hidden">
+    <div id="skills-menu" class="card" role="dialog" aria-label="Skills">
+
+      <div class="skills-header">
+        <div class="hdr-left">
+          <span class="bracket">[</span>
+          <h2>SKILLS</h2>
+          <span class="bracket">]</span>
+        </div>
+
+        <button class="ghost" onclick="closeMenu()" aria-label="Close">✖</button>
+      </div>
+
+      <div class="divider"></div>
+
+      <div id="skills-list" class="skills-list"></div>
+
+      <div class="skills-footer">
+        <span class="hint">ESC</span>
+        <span class="hint-text">CLOSE</span>
+      </div>
+
     </div>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
